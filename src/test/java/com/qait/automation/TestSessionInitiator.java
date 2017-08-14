@@ -12,7 +12,7 @@ import com.qait.automation.mail.utils.LocatorReader;
 public class TestSessionInitiator {
 
 	WebDrivers wd = new WebDrivers();
-	public WebDriver myDriver;
+	public WebDriver driver;
 	public LoginPageActions loginPage;
 	public ComposeMailActions composenewmail;
 	LocatorReader lr;
@@ -28,8 +28,8 @@ public class TestSessionInitiator {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		myDriver = wd.getBrowser();
-		myDriver.manage().window().maximize();
+		driver = wd.getBrowser();
+		driver.manage().window().maximize();
 		try {
 			initActionClasses();
 		} catch (InterruptedException e) {
@@ -41,13 +41,13 @@ public class TestSessionInitiator {
 
 	private void initActionClasses() throws IOException, InterruptedException {
 	
-		loginPage = new LoginPageActions(myDriver);
-		composenewmail = new ComposeMailActions(myDriver);
+		loginPage = new LoginPageActions(driver);
+		composenewmail = new ComposeMailActions(driver);
 	}
 
 	public void closeSession() {
 		// TODO Auto-generated method stub
-		myDriver.quit();
+		driver.quit();
 	}
 
 }

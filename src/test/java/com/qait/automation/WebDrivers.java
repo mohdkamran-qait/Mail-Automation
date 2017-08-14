@@ -60,6 +60,9 @@ public class WebDrivers {
 
 	private WebDriver getSafariDriver() {
 		System.setProperty("webdriver.safari.driver", driverpath + "/safari.exe");
+		
+		
+		
 		return new SafariDriver();
 	}
 

@@ -69,10 +69,10 @@ public class DataProviders {
 	// readexcelfile(1, 2) } };
 	// }
 
-	@DataProvider(name = "mydata" , parallel=true)
+	@DataProvider(name = "mydata" , parallel=true )
 	public static Object[][] mydata() throws IOException {
-		Object[][] data = new Object[10][3];
-		for (int i = 0; i < 10; i++) {
+		Object[][] data = new Object[3][3];
+		for (int i = 0; i < 3; i++) {
 			data[i][0] = readexcelfile(i, 0);
 			data[i][1] = readexcelfile(i, 1);
 			data[i][2] = readexcelfile(i, 2);

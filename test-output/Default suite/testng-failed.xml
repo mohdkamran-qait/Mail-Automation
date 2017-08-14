@@ -5,8 +5,7 @@
     <classes>
       <class name="com.qait.automation.mail.test.MailAutomation">
         <methods>
-          <include name="destroySession"/>
-          <include name="T2_verifyComposeNewMailFunctionality" invocation-numbers="7 6 5 1 2 9 3 8 4"/>
+          <include name="T2_verifyComposeNewMailFunctionality" invocation-numbers="1 2 0"/>
         </methods>
       </class> <!-- com.qait.automation.mail.test.MailAutomation -->
     </classes>

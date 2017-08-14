@@ -14,7 +14,7 @@ public class ComposeMailActions {
 
 	WebDriver driver;
 	LocatorReader lr;
-	DataProviders dp ;
+	DataProviders dp;
 
 	public ComposeMailActions(WebDriver driver) {
 		// TODO Auto-generated constructor stub
@@ -22,25 +22,32 @@ public class ComposeMailActions {
 		this.lr = new LocatorReader("src/test/resources/locators/locators.spec");
 	}
 
-	public void verifyComposeMail( String p1 , String p2,String p3) throws IOException, InterruptedException {
-		Thread.sleep(1000);
-		//WebDriverWait wait = new WebDriverWait(driver, 10);
-		//WebElement element = wait.until(ExpectedConditions.elementToBeClickable(lr.getlocator("newmessage_button")));
+	public void verifyComposeMail(String p1, String p2, String p3) throws IOException, InterruptedException {
+		//Thread.sleep(5000);
+		WebDriverWait wait = new WebDriverWait(driver, 500);
+
+		wait.until(ExpectedConditions.visibilityOfElementLocated(lr.getlocator("newmessage_button")));
 		driver.findElement(lr.getlocator("newmessage_button")).click();
+		
+		wait.until(ExpectedConditions.visibilityOfElementLocated(lr.getlocator("sendto_tab")));
 		driver.findElement(lr.getlocator("sendto_tab")).sendKeys(p1);
+		
+		wait.until(ExpectedConditions.visibilityOfElementLocated(lr.getlocator("subject_tab")));
 		driver.findElement(lr.getlocator("subject_tab")).sendKeys(p2);
 
-		Thread.sleep(1000);
-		
+		Thread.sleep(2000);
+
 		driver.switchTo().frame("ZmHtmlEditor1_body_ifr");
-		//WebDriverWait wait = new WebDriverWait(driver, 10);
-		//WebElement element1 = wait.until(ExpectedConditions.elementToBeClickable(lr.getlocator("messagebody_box")));
+
+		wait.until(ExpectedConditions.visibilityOfElementLocated(lr.getlocator("messagebody_box")));
 		driver.findElement(lr.getlocator("messagebody_box")).sendKeys(p3);
 
 		driver.switchTo().defaultContent();
-		Thread.sleep(1000);
-		//WebElement element2 = wait.until(ExpectedConditions.elementToBeClickable(lr.getlocator("sendmail_button")));
+
+		Thread.sleep(2000);
+		
+		wait.until(ExpectedConditions.visibilityOfElementLocated(lr.getlocator("sendmail_button")));
 		driver.findElement(lr.getlocator("sendmail_button")).click();
-//		driver.quit();
+
 	}
 }
